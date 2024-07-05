@@ -1,0 +1,86 @@
+@import '/src/styles/variables.scss';
+
+.website,
+.book,
+.contact {
+    @include flex($dir: column, $gap: 20px);
+    @include border($bac: $dark_op);
+    position: relative;
+    grid-column: span 2;
+    > .preview {
+        &_website {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            @include size;
+        }
+        &_book {
+            @include size;
+            @include flex($gap: 20px);
+        }
+    }
+    @media screen and (max-width: 359px) {
+        &:nth-child(even) {
+            @include size(
+                $wid: calc(100% - 25px),
+                $mar: 0 25px 0 0,
+                $pad: 20px 45px 20px 20px
+            );
+            > button {
+                position: absolute;
+                right: 0;
+                &[data-back='github'],
+                &[data-back='load'],
+                &[data-back='copy'] {
+                    top: 50%;
+                    transform: translate(50%, -65px);
+                }
+                &[data-back='global'],
+                &[data-back='more'] {
+                    bottom: 50%;
+                    transform: translate(50%, 65px);
+                }
+            }
+        }
+        &:nth-child(odd) {
+            @include size(
+                $wid: calc(100% - 25px),
+                $mar: 0 0 0 25px,
+                $pad: 20px 20px 20px 45px
+            );
+            > button {
+                position: absolute;
+                left: 0;
+                &[data-back='github'],
+                &[data-back='load'],
+                &[data-back='copy'] {
+                    top: 50%;
+                    transform: translate(-50%, -65px);
+                }
+                &[data-back='global'],
+                &[data-back='more'] {
+                    bottom: 50%;
+                    transform: translate(-50%, 65px);
+                }
+            }
+        }
+    }
+    @media screen and (min-width: 360px) {
+        @include size($wid: calc(100% - 50px), $mar: 0 auto, $pad: 20px 45px);
+        > button {
+            position: absolute;
+            top: 50%;
+            &[data-back='github'],
+            &[data-back='load'],
+            &[data-back='copy'] {
+                left: 0;
+                transform: translate(-50%, -50%);
+            }
+            &[data-back='global'],
+            &[data-back='more'] {
+                transform: translate(50%, -50%);
+                right: 0;
+            }
+        }
+    }
+}

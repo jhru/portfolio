@@ -1,0 +1,84 @@
+@import '/src/styles/variables.scss';
+
+.string_generator {
+    @include size($pad: $space_sma);
+    @include grid(
+        $col: repeat(80px 1fr),
+        $jus: stretch,
+        $ali: stretch,
+        $gap: $space_sma
+    );
+    @include border($bac: $dark_op);
+    grid-column: span 2;
+
+    > .result {
+        @include grid($col: 1fr 50px, $row: 1fr 1fr, $ali: stretch);
+        grid-column: span 2;
+        > strong {
+            @include size($pad: $space_sma);
+            @include flex;
+            @include border($rad: 5px 0 0 5px, $bac: $dark_op);
+            @include text;
+            word-break: break-all;
+            grid-row: span 2;
+        }
+        > button {
+            @include border($rad: 0 5px 5px 0, $bac: $dark);
+            min-height: 50px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 16px;
+            transition: all 150ms linear;
+            cursor: pointer;
+            &.refresh {
+                background-image: url('./images/refresh.svg');
+                border-radius: 0 5px 0 0;
+            }
+            &.copy {
+                background-image: url('./images/copy.svg');
+                border-radius: 0 0 5px 0;
+            }
+            &.clicked {
+                background-color: $dark_op;
+            }
+        }
+    }
+
+    > .amount,
+    > .alphabet {
+        > button {
+            @include size($hei: 25%, $pad: $space_sma);
+            @include text;
+            transition: all 150ms linear;
+            cursor: pointer;
+            &.increment,
+            &:first-child {
+                border-radius: 5px 5px 0 0;
+            }
+            &.decrement,
+            &:last-child {
+                border-radius: 0 0 5px 5px;
+            }
+        }
+        > strong {
+            @include size($hei: 50%, $pad: $space_sma);
+            @include flex;
+            @include border($rad: 0, $bac: $dark_op);
+            @include text;
+        }
+    }
+
+    > .amount > button {
+        @include border($bac: $dark);
+        &.clicked {
+            background-color: $dark_op;
+        }
+    }
+
+    > .alphabet > button {
+        @include border($rad: 0, $bac: $dark_op);
+        &.active {
+            background-color: $dark;
+        }
+    }
+}

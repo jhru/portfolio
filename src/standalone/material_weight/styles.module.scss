@@ -1,0 +1,42 @@
+@import '/src/styles/variables.scss';
+
+.material_weight {
+    @include size($pad: $space_sma);
+    @include flex($dir: column, $ali: stretch, $gap: $space_sma);
+    @include border($bac: $dark_op);
+    grid-column: span 2;
+    > .input {
+        @include flex($ali: stretch);
+        > label,
+        > input {
+            @include size($wid: auto, $pad: $space_sma);
+            @include text;
+        }
+        > label {
+            @include border($rad: 5px 0 0 5px, $bac: $dark);
+            flex: 0 0 90px;
+        }
+        > input {
+            @include border($rad: 0 5px 5px 0, $bac: $dark_op);
+            flex: 1 0;
+        }
+    }
+    > .material {
+        @include flex($wra: wrap, $gap: $space_sma);
+        button {
+            @include size($wid: auto, $pad: 5px 10px);
+            @include border($bac: $dark_op);
+            @include text;
+            transition: all 150ms linear;
+            cursor: pointer;
+            &.clicked {
+                background-color: $dark;
+            }
+        }
+    }
+    > .result {
+        @include size($pad: $space_sma);
+        @include border($bac: $dark_op);
+        @include text;
+    }
+}

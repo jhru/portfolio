@@ -1,0 +1,237 @@
+@import '/src/styles/variables.scss';
+
+.loader {
+    @include flex($gap: 20px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    > div {
+        @include size($wid: 30px, $hei: 20px);
+        @include border($bac: $dark_op);
+        &:nth-child(even) {
+            animation: loader_even 750ms linear infinite;
+        }
+        &:nth-child(odd) {
+            animation: loader_odd 750ms linear infinite;
+        }
+        @keyframes loader_even {
+            0% {
+                transform: translateY(-10px);
+            }
+            50% {
+                transform: translateY(10px);
+            }
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+        @keyframes loader_odd {
+            0% {
+                transform: translateY(10px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(10px);
+            }
+        }
+    }
+}
+
+.button {
+    &_square {
+        @include size($wid: 50px, $hei: 50px);
+        @include border($bac: $dark);
+        z-index: 1;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: all 150ms linear;
+        cursor: pointer;
+        &[data-back='github'] {
+            background-image: url('/images/button/github.svg');
+        }
+        &[data-back='global'] {
+            background-image: url('/images/button/global.svg');
+        }
+        &[data-back='load'] {
+            background-image: url('/images/button/load.svg');
+        }
+        &[data-back='more'] {
+            background-image: url('/images/button/more.svg');
+        }
+        &[data-back='copy'] {
+            background-image: url('/images/button/copy.svg');
+        }
+        &.default {
+            background-size: 20px;
+        }
+        &.clicked {
+            background-size: 10px;
+        }
+        &:disabled {
+            opacity: 0.5;
+            cursor: default;
+        }
+    }
+    &_vertical {
+        @include size($wid: 40px, $pad: 15px 10px);
+        @include border($bac: $dark);
+        @include text($tra: uppercase);
+        position: absolute;
+        top: 50%;
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        transition: all 150ms linear;
+        cursor: pointer;
+        &.default {
+            transform: translateY(-50%) scale(1);
+        }
+        &.clicked {
+            transform: translateY(-50%) scale(0.5);
+        }
+        &:disabled {
+            opacity: 0.5;
+            cursor: default;
+        }
+    }
+    &_tile {
+        @include size($pad: $space_sma);
+        @include flex($dir: column, $jus: flex-start);
+        @include border($bac: $dark_op);
+        text-decoration: none;
+        transition: all 150ms linear;
+        cursor: pointer;
+        > strong {
+            @include size($pad: $space_sma);
+            @include border($bac: $dark_op);
+            @include text($wei: bold, $tra: uppercase);
+            display: block;
+            margin-bottom: 15px;
+        }
+        > p {
+            @include text($ali: center);
+        }
+        &.clicked {
+            transform: scale(0.5);
+        }
+        &:disabled {
+            opacity: 0.5;
+            cursor: default;
+        }
+    }
+    &_image {
+        @include size($pad: 5px);
+        @include flex;
+        @include border($bac: $dark);
+        transition: all 150ms linear;
+        cursor: pointer;
+        &:nth-child(1) {
+            grid-column: span 2;
+        }
+        > img {
+            @include size($hei: auto);
+            @include border;
+            opacity: 0.75;
+        }
+        &.clicked {
+            transform: scale(0.5);
+        }
+        &:disabled {
+            opacity: 0.5;
+            cursor: default;
+        }
+    }
+}
+
+.hamburger {
+    @include size($wid: 50px, $hei: 50px);
+    @include flex($dir: column, $gap: 5px);
+    @include border($rad: 50%, $bac: $dark);
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    z-index: 15;
+    transform: translateX(-25px);
+    transition: all 300ms linear;
+    cursor: pointer;
+    > span {
+        @include border($bac: $light);
+        display: block;
+        transition: all 300ms linear;
+        &:nth-child(1),
+        &:nth-child(3) {
+            @include size($wid: 15px, $hei: 5px);
+        }
+        &:nth-child(2) {
+            @include size($wid: 25px, $hei: 5px);
+        }
+    }
+    &.active {
+        @media screen and (max-width: 460px) {
+            left: calc(100% - 280px);
+        }
+        @media screen and (min-width: 461px) {
+            left: calc(100% - 400px);
+        }
+        > span {
+            @include border($bac: $red);
+        }
+    }
+}
+
+.title {
+    &_default {
+        @include size($pad: $space_sma);
+        @include border($bac: $dark_op);
+        @include text($wei: bold, $spa: 1px, $tra: uppercase);
+    }
+}
+
+.text {
+    @include text($ali: center);
+}
+
+.separator {
+    @include size;
+    @include flex;
+    > div {
+        @include size($wid: 5px, $hei: 5px, $mar: $space_sma);
+        @include border($rad: 50%, $bac: $dark_op);
+    }
+}
+
+.coin {
+    @include grid($col: repeat(2, 1fr), $ali: stretch, $gap: $space_sma);
+    &:nth-child(even) {
+        > .plus {
+            order: 1;
+        }
+        > .minus {
+            order: 2;
+        }
+    }
+    &:nth-child(odd) {
+        > .plus {
+            order: 2;
+        }
+        > .minus {
+            order: 1;
+        }
+    }
+    > h3 {
+        @include text($wei: bold, $spa: 1px, $tra: uppercase);
+        grid-column: span 2;
+    }
+    > p {
+        @include size($pad: $space_sma);
+        @include text;
+        &.plus {
+            @include border($bac: $green_op);
+        }
+        &.minus {
+            @include border($bac: $red_op);
+        }
+    }
+}

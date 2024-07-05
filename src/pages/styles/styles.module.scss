@@ -1,0 +1,54 @@
+@import '/src/styles/variables.scss';
+
+.author {
+    @include size($pad: $space_sma);
+    @include flex($dir: column, $gap: $space_sma);
+    @include border($bac: $dark_op);
+    grid-column: span 2;
+    > button {
+        @include size($pad: 5px);
+        @include flex;
+        @include border($bac: $dark);
+        position: relative;
+        transition: all 150ms linear;
+        &.default {
+            transform: scale(1);
+        }
+        &.clicked {
+            transform: scale(0.5);
+        }
+        > img {
+            @include size;
+            cursor: pointer;
+        }
+        > strong {
+            @include size($wid: auto, $pad: 10px);
+            @include text($wei: bold, $spa: 1px, $tra: uppercase);
+            position: absolute;
+            bottom: 5px;
+            &:first-of-type {
+                left: 5px;
+                @include border($rad: 0 5px 0 0, $bac: $dark_op);
+            }
+            &:last-of-type {
+                right: 5px;
+                @include border($rad: 5px 0 0 0, $bac: $dark_op);
+            }
+        }
+    }
+    > h1 {
+        @include size($pad: $space_sma);
+        @include border($bac: $dark_op);
+        @include text($wei: bold, $spa: 1px, $tra: uppercase);
+        grid-column: span 2;
+    }
+}
+
+.biography,
+.feature,
+.stop {
+    @include size($pad: $space_sma);
+    @include flex($dir: column, $gap: $space_sma);
+    @include border($bac: $dark_op);
+    grid-column: span 2;
+}

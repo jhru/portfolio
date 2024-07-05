@@ -1,0 +1,99 @@
+@import '/src/styles/variables.scss';
+
+.gradient {
+    @include size($pad: $space_sma);
+    @include flex($dir: column, $jus: flex-start, $ali: stretch);
+    @include border($bac: $dark_op);
+    align-self: flex-start;
+    @media screen and (max-width: 419px) {
+        grid-column: span 2;
+    }
+    @media screen and (min-width: 420px) {
+        grid-column: span 1;
+    }
+
+    .preview {
+        @include size($hei: 80px);
+        @include border($rad: 5px 5px 0 0);
+        position: relative;
+        cursor: pointer;
+        &::after {
+            @include size($wid: 50px, $hei: 50px);
+            @include border($rad: 50%, $bac: $dark_op);
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 20px;
+            background-image: url('./images/copy.svg');
+            transition: all 300ms linear;
+            opacity: 0;
+        }
+        &.clicked::after {
+            transform: translate(-50%, -50%) rotate(180deg);
+            opacity: 1;
+        }
+    }
+    .divided {
+        > button {
+            @include size($pad: 15px 10px);
+            @include border($rad: 0, $bac: $dark);
+            transition: all 150ms linear;
+            cursor: pointer;
+            &.clicked {
+                gap: 20px;
+            }
+            > span {
+                &:first-child {
+                    @include size($wid: 16px, $hei: 16px);
+                    @include border($rad: 50%);
+                    display: block;
+                }
+                &:last-child {
+                    @include border($rad: 0 5px 5px 0);
+                    @include text;
+                }
+            }
+        }
+
+        @media screen and (max-width: 419px) {
+            @include flex($dir: column);
+            > button {
+                @include flex($gap: 10px);
+                &:first-child {
+                    @include border($rad: 0);
+                }
+                &:last-child {
+                    @include border($rad: 0 0 5px 5px);
+                }
+            }
+        }
+        @media screen and (min-width: 420px) and (max-width: 599px) {
+            @include flex($dir: column);
+            > button {
+                @include flex($gap: 10px);
+                &:first-child {
+                    @include border($rad: 0);
+                }
+                &:last-child {
+                    @include border($rad: 0 0 5px 5px);
+                }
+            }
+        }
+        @media screen and (min-width: 600px) {
+            @include flex($ali: stretch);
+            > button {
+                @include flex($dir: column, $gap: 10px);
+                &:first-child {
+                    @include border($rad: 0 0 0 5px);
+                }
+                &:last-child {
+                    @include border($rad: 0 0 5px 0);
+                }
+            }
+        }
+    }
+}

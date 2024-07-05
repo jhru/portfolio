@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <path fill='none' stroke='hsl(200deg, 20%, 80%)' stroke-miterlimit='10' stroke-width='4px' class="cls-1" d="m20.14,12.8c.76-7.22,4.24-9.56,12.97-9.56,10.05,0,13.14,3.09,13.14,13.14,0,8.74-2.34,12.21-9.56,12.97"/>
+  <path fill='none' stroke='hsl(200deg, 20%, 80%)' stroke-miterlimit='10' stroke-width='4px' class="cls-1" d="m3.25,33.1c0-10.05,3.09-13.14,13.14-13.14s13.14,3.09,13.14,13.14-3.09,13.14-13.14,13.14-13.14-3.09-13.14-13.14Z"/>
+</svg>

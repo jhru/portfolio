@@ -1,0 +1,36 @@
+@import '/src/styles/variables.scss';
+
+.modal {
+    @include size($wid: 100%, $hei: 100%);
+    @include border($bac: $dark_op);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 20;
+    transition: all 300ms linear;
+    cursor: pointer;
+    &.opened {
+        transform: scale(1);
+    }
+    &.closed {
+        visibility: hidden;
+        transform: scale(0);
+    }
+    > .content {
+        @include size($wid: auto, $hei: auto, $pad: 5px);
+        @include flex;
+        @include border($bac: $dark);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        > img {
+            @include border;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+    }
+}

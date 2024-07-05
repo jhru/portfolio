@@ -1,0 +1,64 @@
+@import './variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+#root {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    .app {
+        @include border($rad: 0);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        background: linear-gradient(
+            90deg,
+            hsl(240, 50%, 60%),
+            hsl(40, 50%, 60%)
+        );
+        #wrap {
+            position: absolute;
+            top: 50px;
+            bottom: 50px;
+            left: 0;
+            right: 0;
+            overflow: hidden auto;
+            main {
+                max-width: 650px;
+                @media screen and (max-width: 359px) {
+                    @include size(
+                        $mar: 0 auto,
+                        $pad: 50px $space_sma $space_sma $space_sma
+                    );
+                    @include grid(
+                        $col: repeat(2, 1fr),
+                        $ali: stretch,
+                        $gap: $space_sma
+                    );
+                }
+                @media screen and (min-width: 360px) {
+                    @include size(
+                        $mar: 0 auto,
+                        $pad: 50px $space_lar $space_lar $space_lar
+                    );
+                    @include grid(
+                        $col: repeat(2, 1fr),
+                        $ali: stretch,
+                        $gap: $space_lar
+                    );
+                }
+            }
+        }
+    }
+}

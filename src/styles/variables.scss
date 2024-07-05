@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+// colors
+$red: hsl(0, 40%, 50%);
+$red_op: hsla(0, 40%, 50%, 0.75);
+$green: hsl(125, 19%, 49%);
+$green_op: hsla(125, 20%, 50%, 0.75);
+$blue: hsla(50, 50%, 50%, 1);
+
+$global: hsl(220, 45%, 50%);
+$github: hsl(265, 30%, 50%);
+$telegram: hsl(200, 50%, 60%);
+$mail: hsl(5, 50%, 60%);
+
+$dark: hsl(200, 20%, 20%);
+$dark_op: hsla(200deg, 25%, 25%, 0.5);
+$light: hsl(200deg, 20%, 80%);
+// animation
+$hovering: all 150ms linear;
+// padding/margin
+$space_sma: 15px;
+$space_lar: 30px;
+
+@mixin size($wid: 100%, $hei: auto, $mar: 0, $pad: 0) {
+    width: $wid;
+    height: $hei;
+    margin: $mar;
+    padding: $pad;
+}
+
+@mixin grid($col: none, $row: none, $jus: center, $ali: center, $gap: 0) {
+    display: grid;
+    grid-template-columns: $col;
+    grid-template-rows: $row;
+    justify-content: $jus;
+    align-items: $ali;
+    gap: $gap;
+}
+
+@mixin flex($dir: row, $jus: center, $ali: center, $wra: nowrap, $gap: 0) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $jus;
+    align-items: $ali;
+    flex-wrap: $wra;
+    gap: $gap;
+}
+
+@mixin border($bor: none, $out: none, $rad: 5px, $bac: none) {
+    border: $bor;
+    outline: $out;
+    border-radius: $rad;
+    background-color: $bac;
+}
+
+@mixin text(
+    $fam: 'JetBrains Mono',
+    $col: $light,
+    $siz: 13px,
+    $lin: calc($siz * 1.5),
+    $wei: normal,
+    $spa: normal,
+    $tra: none,
+    $dec: none,
+    $ali: center
+) {
+    font-family: $fam;
+    color: $col;
+    @media screen and (max-width: 359px) {
+        font-size: calc($siz - 2px);
+    }
+    @media screen and (min-width: 360px) and (max-width: 799px) {
+        font-size: calc($siz - 1px);
+    }
+    @media screen and (min-width: 801px) {
+        font-size: $siz;
+    }
+    line-height: $lin;
+    font-weight: $wei;
+    letter-spacing: $spa;
+    text-transform: $tra;
+    text-decoration: $dec;
+    text-align: $ali;
+}

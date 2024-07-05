@@ -1,0 +1,90 @@
+@import '/src/styles/variables.scss';
+
+.sidebar {
+    position: absolute;
+    top: 50px;
+    bottom: 50px;
+    z-index: 10;
+    background-color: $dark;
+    transition: all 300ms linear;
+    @media screen and (max-width: 460px) {
+        @include size($wid: 280px, $pad: 45px 25px 25px 25px);
+        &.opened {
+            right: 0;
+        }
+        &.closed {
+            right: -280px;
+            visibility: hidden;
+        }
+    }
+    @media screen and (min-width: 461px) {
+        @include size($wid: 400px, $pad: 45px 25px 25px 25px);
+        &.opened {
+            right: 0;
+        }
+        &.closed {
+            right: -400px;
+            visibility: hidden;
+        }
+    }
+}
+
+.overlay {
+    @include size($wid: auto);
+    position: absolute;
+    top: 50px;
+    bottom: 50px;
+    left: 0;
+    z-index: 10;
+    background-color: $dark_op;
+    transition: all 300ms linear;
+    cursor: pointer;
+    &.opened {
+        @media screen and (max-width: 460px) {
+            right: 280px;
+        }
+        @media screen and (min-width: 461px) {
+            right: 400px;
+        }
+    }
+    &.closed {
+        right: 100%;
+        visibility: hidden;
+    }
+}
+
+.navigation {
+    @include size;
+    @include flex($wra: wrap, $gap: 10px);
+    > button {
+        @include border($bac: $dark_op);
+        cursor: pointer;
+        &.home {
+            @include size($hei: 48px, $pad: 15px);
+            background: url('/images/navigation/homepage.svg') center/18px
+                no-repeat $dark_op;
+        }
+        &.main {
+            @include size($pad: 15px);
+            @include text($spa: 1px, $tra: uppercase);
+        }
+        &.interest {
+            @include size($wid: calc((100% - 20px) / 3), $pad: 15px);
+            @include flex($dir: column, $gap: 15px);
+            flex: 1 0 calc((100% - 20px) / 3);
+            > div {
+                @include size($wid: 30px, $hei: 30px);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 30px;
+            }
+            > span {
+                @include text($spa: 1px, $tra: uppercase);
+            }
+        }
+        &:disabled {
+            opacity: 0.5;
+            cursor: default;
+        }
+    }
+}

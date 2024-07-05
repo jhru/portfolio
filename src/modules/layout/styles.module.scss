@@ -1,0 +1,17 @@
+@import '/src/styles/variables.scss';
+
+.header {
+    @include size($hei: 50px, $pad: 20px);
+    @include border($rad: 0, $bac: $dark);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.footer {
+    @include size($hei: 50px, $pad: 20px);
+    @include border($rad: 0, $bac: $dark);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

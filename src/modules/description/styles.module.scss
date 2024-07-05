@@ -1,0 +1,23 @@
+@import '/src/styles/variables.scss';
+
+.description {
+    @include size(
+        $wid: calc(100% - 20px),
+        $mar: 0 auto 0 20px,
+        $pad: $space_sma $space_sma $space_sma 40px
+    );
+    @include flex($dir: column, $gap: $space_sma);
+    @include border($bac: $dark_op);
+    position: relative;
+    grid-column: span 2;
+    > .content {
+        @include flex($dir: column, $gap: 20px);
+        p {
+            @include size;
+            @include text($ali: center);
+        }
+    }
+    > button {
+        left: -20px;
+    }
+}
