@@ -103,7 +103,14 @@ const DATA_DB = {
                     link: 'https://t.me/jhruspace',
                     description: [
                         'Спасибо Павлу Дурову за лучший способ связи! Помимо личного контакта, в Telegram можно подписаться на несколько каналов моего авторства, подробнее о которых можно почитать в других разделах на сайте.'
-                    ]
+                    ],
+                    image: {
+                        src: 'mountain.webp',
+                        alt: 'mountain',
+                        width: 800,
+                        height: 400,
+                        ratio: 2
+                    }
                 },
                 {
                     work: 'discord',
@@ -111,7 +118,14 @@ const DATA_DB = {
                     link: 'https://discord.com/users/jhruspace',
                     description: [
                         'Отличное место для конференций и рабочих чатов ребят на удалённой работе. Кроме того, только в Discord доступна работа с Midjourney. А ещё, если уж совсем откровенно, где ещё общаться во время игры?'
-                    ]
+                    ],
+                    image: {
+                        src: 'forest.webp',
+                        alt: 'forest',
+                        width: 800,
+                        height: 400,
+                        ratio: 2
+                    }
                 },
                 {
                     work: 'github',
@@ -119,7 +133,14 @@ const DATA_DB = {
                     link: 'https://github.com/jhru',
                     description: [
                         'Если нужен код представленных здесь проектов, тогда вам сюда. Кстати, на Github можно поставить автору звёздочку, чтобы серьёзно улучшить свою карму.'
-                    ]
+                    ],
+                    image: {
+                        src: 'sea.webp',
+                        alt: 'sea',
+                        width: 800,
+                        height: 400,
+                        ratio: 2
+                    }
                 },
                 {
                     work: 'email',
@@ -127,7 +148,14 @@ const DATA_DB = {
                     link: 'author@jhru.space',
                     description: [
                         'Как же без почты? Интересно, когда уже наступят времена, в которых почты не будет вовсе? Но пока это обязательный элемент для связи в профессиональной среде.'
-                    ]
+                    ],
+                    image: {
+                        src: 'sunset.webp',
+                        alt: 'sunset',
+                        width: 800,
+                        height: 400,
+                        ratio: 2
+                    }
                 }
             ]
         }

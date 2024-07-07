@@ -187,6 +187,11 @@
         @include border($bac: $dark_op);
         @include text($wei: bold, $spa: 1px, $tra: uppercase);
     }
+    &_contact {
+        @include size($pad: $space_sma);
+        @include border($rad: 5px 5px 0 0, $bac: $dark_op);
+        @include text($wei: bold, $spa: 1px, $tra: uppercase);
+    }
 }
 
 .text {
@@ -233,5 +238,19 @@
         &.minus {
             @include border($bac: $red_op);
         }
+    }
+}
+
+.placeholder {
+    @include size($hei: 100%);
+    @include flex;
+    @include border($rad: 0, $bac: $dark);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    > p {
+        @include size($pad: $space_lar);
+        @include text;
     }
 }

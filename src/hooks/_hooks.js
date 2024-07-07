@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
+import { useWindowSize } from './useWindowSize'
 import {
     toggleSidebar,
     openModal,
@@ -43,4 +44,4 @@ const useBrowser = () => {
     }
 }
 
-export { useSidebar, useModal, useBrowser }
+export { useWindowSize, useSidebar, useModal, useBrowser }

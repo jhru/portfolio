@@ -5,5 +5,16 @@ import { Title } from './title'
 import { Text } from './text'
 import { Separator } from './separator'
 import { Coin } from './coin'
+import { Placeholder } from './placeholder'
 
-export { Meta, Loader, Button, Hamburger, Title, Text, Separator, Coin }
+export {
+    Meta,
+    Loader,
+    Button,
+    Hamburger,
+    Title,
+    Text,
+    Separator,
+    Coin,
+    Placeholder
+}

@@ -1,26 +1,18 @@
 import React from 'react'
 import { Routes } from 'react-router-dom'
-import { useBrowser } from './hooks/_hooks'
+import { useWindowSize, useBrowser } from './hooks/_hooks'
 import { mapRoutes, ROUTES } from './routes/_routes'
 import * as MODULES from './modules/_modules'
+import { Placeholder } from './components/placeholder'
 import './styles/global.scss'
 
 export const App = () => {
     const BROWSER_RDX = useBrowser()
-    React.useEffect(() => {
-        const handleResize = () => {
-            BROWSER_RDX.set({
-                width: window.innerWidth,
-                height: window.innerHeight
-            })
-        }
-        window.addEventListener('resize', handleResize)
-        handleResize()
-        return () => window.removeEventListener('resize', handleResize)
-    }, [])
+    useWindowSize(BROWSER_RDX.set)
 
     return (
         <div className="app">
+            {BROWSER_RDX.status.invalid && <Placeholder />}
             <MODULES.Header />
             <MODULES.Sidebar />
             <MODULES.Modal />

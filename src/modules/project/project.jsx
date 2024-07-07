@@ -66,24 +66,33 @@ const Project = ({ data }) => {
                     />
                 </div>
             )
-        case 'contact':
+        case 'contact': {
             // const { work, title, description, link } = data
+            const background = {
+                backgroundImage: `url(contact/${data.image.src})`
+            }
             return (
                 <div className={styles.contact}>
-                    <Title type={'h2'} title={data.title} />
+                    <div className={styles.main} style={background}>
+                        <Title type={'h2_contact'} title={data.title} />
+                        <Button
+                            type={'square'}
+                            back={'copy'}
+                            action={['copy', data.link]}
+                        />
+                        <Button
+                            type={'square'}
+                            back={'global'}
+                            action={[
+                                'ext',
+                                checkLinkForMail(data.work, data.link)
+                            ]}
+                        />
+                    </div>
                     <Text prefix={'description'} content={data.description} />
-                    <Button
-                        type={'square'}
-                        back={'copy'}
-                        action={['copy', data.link]}
-                    />
-                    <Button
-                        type={'square'}
-                        back={'global'}
-                        action={['ext', checkLinkForMail(data.work, data.link)]}
-                    />
                 </div>
             )
+        }
         default:
             break
     }

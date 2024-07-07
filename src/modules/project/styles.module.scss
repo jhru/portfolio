@@ -1,8 +1,7 @@
 @import '/src/styles/variables.scss';
 
 .website,
-.book,
-.contact {
+.book {
     @include flex($dir: column, $gap: 20px);
     @include border($bac: $dark_op);
     position: relative;
@@ -24,7 +23,7 @@
             @include size(
                 $wid: calc(100% - 25px),
                 $mar: 0 25px 0 0,
-                $pad: 20px 45px 20px 20px
+                $pad: $space_sma calc($space_sma + 25px) $space_sma $space_sma
             );
             > button {
                 position: absolute;
@@ -46,7 +45,7 @@
             @include size(
                 $wid: calc(100% - 25px),
                 $mar: 0 0 0 25px,
-                $pad: 20px 20px 20px 45px
+                $pad: $space_sma $space_sma $space_sma calc($space_sma + 25px)
             );
             > button {
                 position: absolute;
@@ -80,6 +79,36 @@
             &[data-back='more'] {
                 transform: translate(50%, -50%);
                 right: 0;
+            }
+        }
+    }
+}
+
+.contact {
+    @include size($pad: $space_sma);
+    @include flex($dir: column, $gap: $space_sma);
+    @include border($bac: $dark_op);
+    align-self: flex-start;
+    @media screen and (max-width: 539px) {
+        grid-column: span 2;
+    }
+    @media screen and (min-width: 540px) {
+        grid-column: span 1;
+    }
+    > .main {
+        @include size($wid: 100%);
+        @include flex($wra: wrap, $jus: space-between, $gap: $space_sma);
+        @include border;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        > button {
+            margin-bottom: $space_sma;
+            &[data-back='copy'] {
+                margin-left: $space_sma;
+            }
+            &[data-back='global'] {
+                margin-right: $space_sma;
             }
         }
     }

@@ -11,7 +11,10 @@ const settingsSlice = createSlice({
         browser: {
             width: 0,
             height: 0,
-            ratio: 0
+            ratio: 0,
+            flag: {
+                invalid: false
+            }
         }
     },
     reducers: {
@@ -30,13 +33,24 @@ const settingsSlice = createSlice({
         },
         setBrowser: (state, action) => {
             const { width, height } = action.payload
-            const ratio = width / height
             state.browser.width = width
             state.browser.height = height
-            state.browser.ratio = parseFloat(ratio.toFixed(2))
+            state.browser.ratio = setBrowserRatio(width, height)
+            state.browser.invalid = setBrowserInvalid(width, height)
         }
     }
 })
+
+const setBrowserInvalid = (width, height) => {
+    const invalid = width < 320 || height < 500
+    return invalid
+}
+
+const setBrowserRatio = (width, height) => {
+    const ratio = width / height
+    const format = parseFloat(ratio.toFixed(2))
+    return format
+}
 
 export const { toggleSidebar, openModal, closeModal, clearModal, setBrowser } =
     settingsSlice.actions
